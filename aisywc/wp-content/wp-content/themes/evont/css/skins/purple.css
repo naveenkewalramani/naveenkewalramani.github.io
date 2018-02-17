@@ -1,0 +1,59 @@
+.jx-evont-title-5 h1 {
+    color: #9109c3 !important;
+}
+
+.jx-evont-testimonial-6 .item .icon {
+    border: solid 3px #9109c3 !important;
+    color: #9109c3 !important;
+}
+
+
+.jx-evont-testimonial-6 .flex-control-paging li a.flex-active {
+    background: #9109c3 !important;
+    background: rgb(145,9,195) !important;
+}
+
+.jx-evont-blog-section.style-4 .readmore a {
+     color:#9109c3 !important;
+}
+
+
+.jx-evont-tint::before {
+    background: rgb(74, 75, 139 ,0.9) !important;
+}
+
+.jx-evont-blog-section.style-4 .readmore i {
+    color: #9109c3 !important;
+}
+
+.jx-evont-blog-section.style-4 .flex-control-paging li a {
+    border: 2px solid #9109c3 !important;
+}
+
+.jx-evont-blog-section.style-4 .flex-control-paging li a:hover {
+    background: #9109c3 !important;
+    background: rgb(145,9,195) !important;
+}
+
+
+.speaker-img .overlay {
+    background: rgb(145, 9, 195 ,0.9) !important;
+}
+
+
+.jx-evont-header.jx-header-1 {
+    background: transparent !important;
+    position: absolute !important;
+    left: 0px !important;
+    width: 100% !important;
+}
+
+.jx-evont-header.jx-header-1.jx-evont-sticky.fixed {
+	background: #ffffff !important;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2) !important;
+}
+
+
+.jx-evont-plan-section .standard-column {
+    background: #9109c3 !important;
+}
