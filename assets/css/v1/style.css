@@ -121,7 +121,7 @@ div.box:first-child img.avatar {
 
 .tabs > input,
 .tabs > span {
-  width: 25%;
+  width: 33%;
   height: 60px;
   line-height: 60px;
   position: absolute;
@@ -168,15 +168,11 @@ div.box:first-child img.avatar {
 }
 
 #tab-2, #tab-2 + span {
-  left: 25%;
+  left: 33%;
 }
 
 #tab-3, #tab-3 + span {
-  left: 50%;
-}
-
-#tab-4, #tab-4 + span {
-  left: 75%;
+  left: 66%;
 }
 
 .tab-content {
@@ -226,17 +222,10 @@ div.box:first-child img.avatar {
   display: block;
 }
 
-#tab-4:checked ~ .tab-content #tab-item-4  {
-  display: block;
-}
-
-#tab-5:checked ~ .tab-content #tab-item-5  {
-  display: block;
-}
 
 .effect .line{
   background: #3498DB;
-  width: 25%;
+  width: 33%;
   height: 4px;
   position: absolute;
   top: 56px;
@@ -247,15 +236,11 @@ div.box:first-child img.avatar {
 }
 
 #tab-2:checked ~ .line {
-  left: 25%;
+  left: 33%;
 }
 
 #tab-3:checked ~ .line {
-  left: 50%;
-}
-
-#tab-4:checked ~ .line {
-  left: 75%;
+  left: 67%;
 }
 
 @media only screen and (max-width: 550px) {
