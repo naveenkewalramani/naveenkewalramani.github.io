@@ -9,19 +9,25 @@
 body {
   font-family: 'Lato', arial, sans-serif;
   color: #434343;
-  background: #DAE3E7;
+  background-color:#FFF8DC;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+h3, h4, h5, h6 {
   color: #778492;
 }
-
+ h2,h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+h1{
+  font-family: 'Great Vibes', cursive;
+  font-weight: 200;
+}
 a {
+  text-decoration: none;
   color: #3AAA64;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;

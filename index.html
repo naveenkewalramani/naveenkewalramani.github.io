@@ -1,39 +1,299 @@
-<html>
-  <head>
-    <style>
-      .page {
-      padding: 40px;
-      text-align:center;
-       
-      }
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Great Vibes', cursive;
-        background-color:#FFF8DC;
-        font-size:35px;
-      }
-      a{
-        color:black;
-        text-decoration: none;
-      }
-
-
-    </style>
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/loader.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio">
+    <meta name="author" content="Naveen Kewalramani">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <div class="page">
-      <h1 class="title">Welcome to my portfolio</h1>
-      <a href="index_v1.html"> Awesome Version &nbsp;<i class="fa fa-folder"></i></a><br/><br/>
-      <a href="index_v2.html"> Professional Version &nbsp;<i class="fa fa-file"></i></a>
-      <h2>Chalo Code Kare&nbsp;&nbsp;(** Let's Code **)</h2>
-    </div>
-    <div id="splash">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="assets/css/loader.css">  
+    
+    <!-- github calendar css -->
+    <link rel="stylesheet" href="assets/plugins/github-calendar/dist/github-calendar.css">
+    <!-- github acitivity css -->    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="assets/plugins/github-activity/github-activity-0.1.5.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/v2/styles.css">
+    
+</head> 
+
+<body>
+    <!-- ******HEADER****** --> 
+    <header class="header">
+        <div class="container clearfix">                       
+            <img class="profile-image img-fluid float-left" src="assets/images/v2/profile.svg" alt="James Lee" width="20%" />
+            <div class="profile-content float-left">
+              <h1 class="name">Naveen Kewalramani</h1>
+              <h2 class="desc">Full Stack Developer</h2>   
+              <ul class="social list-inline">
+                <li class="list-inline-item"><a href="mailto:naveen.kewalramani2903@gmail.com"><i class="fab fa-google-plus-g"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/naveen-kewalramani/"><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="list-inline-item"><a href="https://github.com/naveenkewalramani"><i class="fab fa-github-alt"></i></a></li>
+              </ul> 
+            </div><!--//profile-->
+            <!-- <a class="btn btn-cta-primary float-right" href="" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a> -->              
+        </div><!--//container-->
+    </header><!--//header-->
+    
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-lg-8 col-12">
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">About Me</h2>
+                        <div class="content">
+                            <p>Hi I am Naveen , a 22 year old Web Developer, Designer and Data Science enthusiast living in Gurgaon, India. I am a Electronics Engineer, currently working with awesome folks at Housing.com .</p>
+                            <p>I need a cup of coffee or a headphone with music, my laptop and a Wi-Fi connection to code & build stuff.Have a look at my projects and skills . I am always excited to work on some awesome projects, lets discuss over coffee.</p>
+                         
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+    
+               <section class="latest section">
+                    <div class="section-inner">
+                        <h2 class="heading">Latest Projects</h2>
+                        <div class="content">    
+                                               
+                            <div class="item featured text-center">
+                                <h3 class="title"><a href="https://github.com/naveenkewalramani/TechBlog" target="_blank">TechBlog</a></h3>
+                                <p class="summary">Blogging WebApp with Ruby on Rails </p>
+                                <div class="featured-image has-ribbon">
+                                    <a href="https://github.com/naveenkewalramani/TechBlog" target="_blank">
+                                    <img class="img-fluid project-image" src="assets/images/v2/projects/techblog.png" alt="Tech Blog" />
+                                    </a>
+                                    <div class="ribbon">
+                                        <div class="text">New</div>
+                                    </div>
+                                </div>
+                                <div class="desc text-left">                                    
+                                    <p>Project Content or Summary or Description</p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/TechBlog" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                         
+                            </div><!--//item-->
+
+                            <hr class="divider" />
+
+                            <div class="item row">
+                                <a class="col-md-4 col-12">
+                                  <img class="img-fluid project-image" src="assets/images/v2/projects/urlshortner.png" alt="UrlShortner" />
+                                </a>
+                                <div class="desc col-md-8 col-12">
+                                    <h3 class="title"><a href="" target="_blank">Url Shortner</a></h3>
+                                    <p class="mb-2">Customized UrlShortner with domain specific mapping in Rails</p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/UrlShortner" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                          
+                            </div><!--//item-->
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+                <section class="projects section">
+                    <div class="section-inner">
+                        <h2 class="heading">Other Projects</h2>
+                        <div class="content">
+                           <div class="item row">
+                                <a class="col-md-4 col-12" href="" target="_blank">
+                                <img class="img-fluid project-image" src="assets/images/v2/projects/topbot.png" alt="Topbot3.0" />
+                                </a>
+                                <div class="desc col-md-8 col-12">
+                                    <h3 class="title"><a target="_blank">Topbot 3.0</a></h3>
+                                    <p class="mb-2">Event Website for Robotics Competition held during Aparoksha'17 (Annual Tech Fest of IIIT Allahabad ) </p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/TOPBOT3.0" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                          
+                            </div><!--//item-->
+                            
+                            <div class="item row">
+                                <a class="col-md-4 col-12"  target="_blank">
+                                <img class="img-fluid project-image" src="assets/images/v2/projects/aisywc.png" alt="AISYWc 17" />
+                                </a>
+                                <div class="desc col-md-8 col-12">
+                                    <h3 class="title"><a target="_blank">AISYWC 17</a></h3>
+                                    <p class="mb-2">Alll India Student - Young Professionals - Women in Engineering Congress(AISYWC) is an annual flagship event of IEEE India Council held at IIIT Allahabd in 2017 </p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/AISYWC17" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                          
+                            </div><!--//item-->    
+
+                            <div class="item row">
+                                <a class="col-md-4 col-12" target="_blank">
+                                <img class="img-fluid project-image" src="assets/images/v2/projects/csis.png" alt="CSIS 17" />
+                                </a>
+                                <div class="desc col-md-8 col-12">
+                                    <h3 class="title"><a  target="_blank">CSIS 17</a></h3>
+                                    <p class="mb-2"> IEEE Computer Society India Symposium is a technical gathering of IEEE held at IIIT Allahabad in 2017 </p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/CSIS2017" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                          
+                            </div><!--//item-->
+
+                            <div class="item row">
+                                <a class="col-md-4 col-12" target="_blank">
+                                <img class="img-fluid project-image" src="assets/images/v2/projects/ams.png" alt="THUNDERBOLT AMS" />
+                                </a>
+                                <div class="desc col-md-8 col-12">
+                                    <h3 class="title"><a  target="_blank">Thunderbolt AMS Website</a></h3>
+                                    <p class="mb-2">Wbesite for Acoustic and Media Society(AMS) IIIT Allahabad for 2016-2018</p>
+                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/ams17" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
+                                </div><!--//desc-->                          
+                            </div><!--//item-->
+                            <a class="btn btn-cta-secondary" href="https://github.com/naveenkewalramani">More on Github <i class="fas fa-chevron-right"></i></a>
+                            
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+              </div><!--//primary-->
+            <div class="secondary col-lg-4 col-12">
+                 <aside class="info aside section">
+                    <div class="section-inner">
+                        <h2 class="heading sr-only">Basic Information</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Gurgaon, India</li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><small>naveen.kewalramani2903@gmail.com</small></li>
+                            </ul>
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </aside><!--//aside-->
+                
+                <aside class="skills aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Skills</h2>
+                        <div class="content">
+                            <p class="intro"></p>
+                            <div class="skillset">
+                                <div class="item">
+                                    <h3 class="level-title">Python<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Pro</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="96%">
+                                        </div>                                      
+                                    </div><!--//level-bar-->                                 
+                                </div><!--//item-->
+                                <div class="item">
+                                    <h3 class="level-title">C &amp; CPP<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Pro</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="96%">
+                                        </div>                                      
+                                    </div><!--//level-bar-->                                 
+                                </div><!--//item-->
+                                
+                                <div class="item">
+                                    <h3 class="level-title">Javascript &amp; jQuery<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Advance</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="70%">
+                                        </div>                                      
+                                    </div><!--//level-bar-->                                 
+                                </div><!--//item-->
+                                
+                                <div class="item">
+                                    <h3 class="level-title">HTML5, CSS3, SASS &amp; LESS<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="96%">
+                                        </div>                                      
+                                    </div><!--//level-bar-->                                 
+                                </div><!--//item-->
+                                
+                                <div class="item">
+                                    <h3 class="level-title">Ruby on Rails <span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Pro</span></h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="85%">
+                                        </div>                                      
+                                    </div><!--//level-bar-->                                 
+                                </div><!--//item-->
+                            </div>              
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </aside><!--//section-->
+                
+                <aside class="education aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Education</h2>
+                        <div class="content">
+                            <div class="item">
+                                <h3 class="title"><i class="fas fa-graduation-cap"></i> B.Tech. Electronics &amp; Communication Engineering</h3>
+                                <h4 class="university">IIIT Allahabad<span class="year"> (2015-2019)</span></h4>
+                            </div><!--//item-->
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                            
+                <aside class="languages aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Languages</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li class="item">
+                                    <span class="title"><strong>English:</strong></span>
+                                    <span class="level">Native Speaker <br class="visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </span>
+                                </li><!--//item-->
+                                <li class="item">
+                                    <span class="title"><strong>Hindi:</strong></span>
+                                    <span class="level">Native Speaker <br class="visible-sm visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></span>
+                                </li><!--//item-->
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                <aside class="blog aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Work Experience</h2>
+                        <div class="content">
+                            <div class="item">
+                                <h3 class="title">Software Developer - <span class="place"><a href="#">Housing.com</a></span> <span class="year">(2019 - Present)</span></h3>
+                                <p>Developeing RESTApi with Ruby on Rails and Django with integration of PostgresQL</p>
+                            </div><!--//item-->
+                        </div><!--//content--> 
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                
+                <aside class="list music aside section">
+                    <div class="section-inner">
+                        <div class="content">
+                          <a href="index_v1.html">Older Version of Me</a><br/>
+                          <a href="resume.pdf">Resume</a>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+                 <aside class="list music aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Favourite coding music (Updated Soon)</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-headphones"></i> <a href="#"></a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="#"></a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="#"></a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="#"></a></li>
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+              
+            </div><!--//secondary-->    
+        </div><!--//row-->
+    </div><!--//masonry-->
+    
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+      <div class="container text-center">
+        <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="" target="_blank">Naveen Kewalramani</a></small>
+      </div><!--//container-->
+    </footer><!--//footer-->
+  
+  <div id="splash">
       <div class="anim">
         <div id="loader">
           <svg version="1.1" width="60px" height="70px" viewBox="0 0 60 70">
@@ -52,17 +312,29 @@
             </g>
             <g id="shadow" transform="scale(.9)">
               <path fill="#000" fill-opacity="0.3" d="M0.677,20.977l4.355,1.631c0.281,0.104,0.579,0.162,0.88,0.16l9.76-0.004L30.46,41.58c0.27,0.34,0.679,0.545,1.112,0.541
-          		h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
-          		c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
-          		c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
-          		c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
-          		C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(64,30) rotate(90 0 0)" filter="url(#f1)" />
+              h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
+              c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
+              c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
+              c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
+              C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(64,30) rotate(90 0 0)" filter="url(#f1)" />
             </g>
           </svg>
         </div>
       </div>
     </div>
-  </body>
+ 
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/popper.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
+    <!-- github calendar plugin -->
+    <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
+    <!-- github activity plugin -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="assets/js/v2/main.js"></script>            
+</body>
+</html> 
 
-  
-</html>
