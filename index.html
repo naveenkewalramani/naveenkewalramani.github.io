@@ -1,357 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Portfolio</title>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Naveen Kewalramani">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
-    
-    <!-- FontAwesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
-    
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="assets/css/loader.css">  
-    
-    <!-- github calendar css -->
-    <link rel="stylesheet" href="assets/plugins/github-calendar/dist/github-calendar.css">
-    <!-- github activity css -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-    <link rel="stylesheet" href="assets/plugins/github-activity/github-activity-0.1.5.min.css">
-    
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/v2/styles.css">
-    
-</head> 
+    <title>Naveen Kewalramani - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #16a085 75%, #27ae60 100%);
+            animation: backgroundShift 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { background: linear-gradient(135deg, #D4AF37FF 0%, #000000 25%, #D4AF37FF 75%, #000000 100%); }
+            100% { background: linear-gradient(135deg, #D4AF37FF 0%, #000000 25%, #D4AF37FF 75%, #000000 100%); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 180px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            margin: 2rem 0;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1, h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #000000, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleBounce 2s ease-in-out;
+        }
+
+        @keyframes titleBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #d4af37, #c0c0c0);
+            border-radius: 2px;
+            animation: underlineExpand 1s ease-out;
+        }
+
+        @keyframes underlineExpand {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: profileFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: #d4af37;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #d4af37, #000000);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            animation: none;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #16a085, #27ae60);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            animation: projectSlideIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes projectSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.2s; }
+        .project-card:nth-child(2) { animation-delay: 0.4s; }
+        .project-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: certificateRotateIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes certificateRotateIn {
+            from {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        .certificate-card:nth-child(1) { animation-delay: 0.1s; }
+        .certificate-card:nth-child(2) { animation-delay: 0.2s; }
+        .certificate-card:nth-child(3) { animation-delay: 0.3s; }
+        .certificate-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .certificate-card:hover::before {
+            left: 100%;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(22, 160, 133, 0.3);
+        }
+
+        .certificate-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #16a085;
+            animation: certificateIconSpin 2s ease-in-out infinite;
+        }
+
+        @keyframes certificateIconSpin {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .certificate-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .certificate-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #16a085, #27ae60);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(22, 160, 133, 0.4);
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-content {
+                padding: 2rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for scroll reveal */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.9s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
 <body>
-    <!-- ******HEADER****** --> 
-    <header class="header">
-        <div class="container clearfix">                       
-            <img class="profile-image img-fluid float-left" src="assets/images/v2/profile.svg" alt="James Lee" width="20%" />
-            <div class="profile-content float-left">
-              <h1 class="name">Naveen Kewalramani</h1>
-              <h2 class="desc">Backend Developer</h2>
-              <ul class="social list-inline">
-                <li class="list-inline-item"><a href="mailto:naveen.kewalramani2903@gmail.com"><i class="fab fa-google-plus-g"></i></a></li>
-                <li class="list-inline-item"><a href="https://www.linkedin.com/in/naveen-kewalramani/"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="list-inline-item"><a href="https://github.com/naveenkewalramani"><i class="fab fa-github-alt"></i></a></li>
-              </ul> 
-            </div><!--//profile-->
-            <!-- <a class="btn btn-cta-primary float-right" href="" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a> -->              
-        </div><!--//container-->
-    </header><!--//header-->
-    
-    <div class="container sections-wrapper">
-        <div class="row">
-            <div class="primary col-lg-8 col-12">
-                <section class="about section">
-                    <div class="section-inner">
-                        <h2 class="heading">About Me</h2>
-                        <div class="content">
-                            <p>Hi, I am Naveen, a 27 year old Backend Engineer living in Bangalore, India. I am a Electronics Engineer, currently working with awesome folks at Grab to build digital bank.</p>
-                            <p>I need a cup of coffee or a headphone with music, my laptop and a Wi-Fi connection to code & build stuff. Have a look at my projects and skills. I am always excited to work on some awesome projects, lets discuss over coffee.</p>
-                         
-                        </div><!--//content-->
-                    </div><!--//section-inner-->                 
-                </section><!--//section-->
-    
-               <section class="latest section">
-                    <div class="section-inner">
-                        <h2 class="heading">Professional Projects</h2>
-                        <div class="content">    
-                                               
-                            <div class="item featured text-center">
-                                <h3 class="title"><a href="https://github.com/naveenkewalramani/TechBlog" target="_blank">TechBlog</a></h3>
-                                <p class="summary">Blogging WebApp with Ruby on Rails </p>
-                                <div class="featured-image has-ribbon">
-                                    <a href="https://github.com/naveenkewalramani/TechBlog" target="_blank">
-                                    <img class="img-fluid project-image" src="assets/images/v2/projects/techblog.png" alt="Tech Blog" />
-                                    </a>
-                                    <div class="ribbon">
-                                        <div class="text">New</div>
-                                    </div>
-                                </div>
-                                <div class="desc text-left">                                    
-                                    <p>Project Content or Summary or Description</p>
-                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/TechBlog" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                         
-                            </div><!--//item-->
-
-                            <hr class="divider" />
-
-                            <div class="item row">
-                                <a class="col-md-4 col-12">
-                                  <img class="img-fluid project-image" src="assets/images/v2/projects/urlshortner.png" alt="UrlShortner" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="" target="_blank">Url Shortner</a></h3>
-                                    <p class="mb-2">Customized Url-Shortner with domain specific mapping in Rails</p>
-                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/UrlShortner" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                          
-                            </div><!--//item-->
-                        </div><!--//content-->  
-                    </div><!--//section-inner-->                 
-                </section><!--//section-->
-                
-                <section class="projects section">
-                    <div class="section-inner">
-                        <h2 class="heading">College Projects</h2>
-                        <div class="content">
-                           <div class="item row">
-                                <a class="col-md-4 col-12" href="" target="_blank">
-                                <img class="img-fluid project-image" src="assets/images/v2/projects/topbot.png" alt="Topbot3.0" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a target="_blank">Topbot 3.0</a></h3>
-                                    <p class="mb-2">Event Website for Robotics Competition held during Aparoksha'17 (Annual Tech Fest of IIIT Allahabad ) </p>
-                                    <p><a class="more-link" href="https://github.com/naveenkewalramani/TOPBOT3.0" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                          
-                            </div><!--//item-->
-                            
-                            <div class="item row">
-                                <a class="col-md-4 col-12"  target="_blank">
-                                <img class="img-fluid project-image" src="assets/images/v2/projects/aisywc.png" alt="AISYWc 17" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a target="_blank">AISYWC 17</a></h3>
-                                    <p class="mb-2">Alll India Student - Young Professionals - Women in Engineering Congress(AISYWC) is an annual flagship event of IEEE India Council held at IIIT Allahabd in 2017 </p>
-                                    <p><a class="more-link" href="projects/aisywc/index.html" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                          
-                            </div><!--//item-->    
-
-                            <div class="item row">
-                                <a class="col-md-4 col-12" target="_blank">
-                                <img class="img-fluid project-image" src="assets/images/v2/projects/csis.png" alt="CSIS 17" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a  target="_blank">CSIS 17</a></h3>
-                                    <p class="mb-2"> IEEE Computer Society India Symposium is a technical gathering of IEEE held at IIIT Allahabad in 2017 </p>
-                                    <p><a class="more-link" href="projects/csis/index.html" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                          
-                            </div><!--//item-->
-
-                            <div class="item row">
-                                <a class="col-md-4 col-12" target="_blank">
-                                <img class="img-fluid project-image" src="assets/images/v2/projects/ams.png" alt="THUNDERBOLT AMS" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a  target="_blank">Thunderbolt AMS Website</a></h3>
-                                    <p class="mb-2">Website for Acoustic and Media Society(AMS) IIIT Allahabad for 2016-2018</p>
-                                    <p><a class="more-link" href="projects/ams/index.html" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div><!--//desc-->                          
-                            </div><!--//item-->
-                            <a class="btn btn-cta-secondary" href="https://github.com/naveenkewalramani">More on Github <i class="fas fa-chevron-right"></i></a>
-                            
-                        </div><!--//content-->  
-                    </div><!--//section-inner-->                 
-                </section><!--//section-->
-                
-              </div><!--//primary-->
-            <div class="secondary col-lg-4 col-12">
-                 <aside class="info aside section">
-                    <div class="section-inner">
-                        <h2 class="heading sr-only">Basic Information</h2>
-                        <div class="content">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Bangalore, India</li>
-                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><small>naveen.kewalramani2903@gmail.com</small></li>
-                                <a href="resume.pdf">Resume</a>
-                            </ul>
-                        </div><!--//content-->  
-                    </div><!--//section-inner-->                 
-                </aside><!--//aside-->
-                
-                <aside class="skills aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Programming Languages</h2>
-                        <div class="content">
-                            <p class="intro"></p>
-                            <div class="skillset">
-                                <div class="item">
-                                    <h3 class="level-title">GoLang</h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="90%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">Python</h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="90%">
-                                        </div>                                      
-                                    </div><!--//level-bar-->                                 
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">Ruby on Rails </h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="80%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-                            </div>              
-                        </div><!--//content-->  
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
-
-                <aside class="skills aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Other Tools & Skills</h2>
-                        <div class="content">
-                            <p class="intro"></p>
-                            <div class="skillset">
-                                <div class="item">
-                                    <h3 class="level-title">Redis</h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="90%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">MySQL & PostgreSQL</h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="90%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title"> Apache Kafka  & Rabbit MQ</h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="80%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-
-                                <div class="item">
-                                    <h3 class="level-title">MongoDB & AWS Dynamo DB </h3>
-                                    <div class="level-bar">
-                                        <div class="level-bar-inner" data-level="80%">
-                                        </div>
-                                    </div><!--//level-bar-->
-                                </div><!--//item-->
-                            </div>
-                        </div><!--//content-->
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
-                
-                <aside class="education aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Education</h2>
-                        <div class="content">
-                            <div class="item">
-                                <h3 class="title"><i class="fas fa-graduation-cap"></i> B.Tech. Electronics &amp; Communication Engineering</h3>
-                                <h4 class="university">IIIT Allahabad<span class="year"> (2015-2019)</span></h4>
-                            </div><!--//item-->
-                        </div><!--//content-->
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
-                            
-                <aside class="languages aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Languages</h2>
-                        <div class="content">
-                            <ul class="list-unstyled">
-                                <li class="item">
-                                    <span class="title"><strong>English:</strong></span>
-                                    <span class="level">Native Speaker <br class="visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </span>
-                                </li><!--//item-->
-                                <li class="item">
-                                    <span class="title"><strong>Hindi:</strong></span>
-                                    <span class="level">Native Speaker <br class="visible-sm visible-xs"/><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></span>
-                                </li><!--//item-->
-                            </ul>
-                        </div><!--//content-->
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
-                
-                <aside class="blog aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Work Experience</h2>
-                        <div class="content">
-                            <div class="item">
-                                <h3 class="title">Lead Software Developer - <span class="place"><a href="https://www.grab.com/sg/">Grab (GXS Bank)</a></span> <span class="year">(Oct 2024 - Present)</span></h3>
-                                <p></p>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title">Senior Software Developer - <span class="place"><a href="https://www.grab.com/sg/">Grab (GXS Bank)</a></span> <span class="year">(Apr 2022 - Sep 2024)</span></h3>
-                                <p></p>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title">Software Developer - <span class="place"><a href="https://www.grab.com/sg/">Grab (GXS Bank)</a></span> <span class="year">(Apr 2021 - Mar 2022)</span></h3>
-                                <p></p>
-                            </div><!--//item-->
-                            <div class="item">
-                                <h3 class="title">Software Developer - <span class="place"><a href="#">Housing.com</a></span> <span class="year">(Jan 2019 - Mar 2021)</span></h3>
-                                <p></p>
-                            </div><!--//item-->
-                        </div><!--//content--> 
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
-            </div><!--//secondary-->    
-        </div><!--//row-->
-    </div><!--//masonry-->
-    
-    <!-- ******FOOTER****** --> 
-    <footer class="footer">
-      <div class="container text-center">
-        <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="" target="_blank">Naveen Kewalramani</a></small>
-      </div><!--//container-->
-    </footer><!--//footer-->
-  
-  <div id="splash">
-      <div class="anim">
-        <div id="loader">
-          <svg version="1.1" width="60px" height="70px" viewBox="0 0 60 70">
-            <defs>
-              <filter id="f1" x="0" y="0">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-              </filter>
-            </defs>
-            <g id="airplane">
-              <path fill="#000" d="M0.677,20.977l4.355,1.631c0.281,0.104,0.579,0.162,0.88,0.16l9.76-0.004L30.46,41.58c0.27,0.34,0.679,0.545,1.112,0.541
-              h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
-              c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
-              c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
-              c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
-              C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(44,0) rotate(90 0 0)" />
-            </g>
-            <g id="shadow" transform="scale(.9)">
-              <path fill="#000" fill-opacity="0.3" d="M0.677,20.977l4.355,1.631c0.281,0.104,0.579,0.162,0.88,0.16l9.76-0.004L30.46,41.58c0.27,0.34,0.679,0.545,1.112,0.541
-              h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
-              c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
-              c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
-              c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
-              C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(64,30) rotate(90 0 0)" filter="url(#f1)" />
-            </g>
-          </svg>
-        </div>
-      </div>
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="logo">Portfolio</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#meeting">Book Meeting</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
     </div>
- 
-    <!-- Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/popper.min.js"></script> 
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
-    <!-- github calendar plugin -->
-    <script type="text/javascript" src="assets/plugins/github-calendar/dist/github-calendar.min.js"></script>
-    <!-- github activity plugin -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
-    <!-- custom js -->
-    <script type="text/javascript" src="assets/js/v2/main.js"></script>            
-</body>
-</html> 
+</nav>
 
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div class="section-content fade-in">
+            <div class="about-content">
+                <div>
+                    <img src="assets/images/v1/naveen.jpeg" alt="Profile Picture" class="profile-image">
+                </div>
+                <div>
+                    <h1>Hi, I'm Naveen Kewalramani</h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666;">
+                        Welcome to my portfolio! Hi, I am Naveen, a 28-year-old Backend Engineer. I am a Electronics Engineer, currently working with awesome folks at Grab to build digital bank.
+                        I need a cup of coffee or a headphone with music, my laptop and a Wi-Fi connection to code & build stuff. Have a look at my projects and skills. I am always excited to work on some awesome projects, lets discuss over coffee.
+                    </p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i>📧</i>
+                            <span>naveen.kewalramani2903@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="resume.pdf" class="btn" target="_blank">📄 Download Resume</a>
+                        <a href="https://www.linkedin.com/in/naveen-kewalramani/" class="btn btn-outline" target="_blank">LinkedIn</a>
+                        <a href="https://www.instagram.com/naveen_kewalramani/" class="btn btn-outline" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Book Meeting Section -->
+<section id="meeting">
+    <div class="container">
+        <div class="section-content fade-in">
+            <div class="meeting-section">
+                <div class="meeting-content">
+                    <div class="meeting-icon">🤝</div>
+                    <h2 class="meeting-title">Let's Connect!</h2>
+                    <p class="meeting-description">
+                        Ready to discuss your next project or explore collaboration opportunities?
+                        Book a meeting with me and let's turn your ideas into reality. I'm available for
+                        consultations, project discussions, and technical guidance.
+                    </p>
+                    <a href="https://topmate.io/naveen_kewalramani/" class="meeting-btn" target="_blank">
+                        📅 Schedule a Meeting
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certificates Section -->
+<section id="certificates">
+    <div class="container">
+        <div class="section-content fade-in">
+            <h2>Certifications & Achievements</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-icon">🏆</div>
+                    <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
+                    <p class="certificate-description">
+                    </p>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-icon">📜</div>
+                    <h3>AI For Everyone</h3>
+                    <p class="certificate-description">
+
+                    </p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/F5WMW4KX8KWW" class="certificate-link" target="_blank">View Certificate</a>
+                </div>
+
+<!--                <div class="certificate-card">-->
+<!--                    <div class="certificate-icon">🎯</div>-->
+<!--                    <h3>React Professional Developer</h3>-->
+<!--                    <p class="certificate-description">-->
+<!--                        Advanced certification in React.js ecosystem including Redux, Hooks, and modern development patterns.-->
+<!--                    </p>-->
+<!--                    <a href="https://certificate-link-3.com" class="certificate-link" target="_blank">View Certificate</a>-->
+<!--                </div>-->
+
+<!--                <div class="certificate-card">-->
+<!--                    <div class="certificate-icon">⚡</div>-->
+<!--                    <h3>JavaScript Algorithms & Data Structures</h3>-->
+<!--                    <p class="certificate-description">-->
+<!--                        Comprehensive certification covering advanced JavaScript concepts, algorithms, and data structure implementation.-->
+<!--                    </p>-->
+<!--                    <a href="https://certificate-link-4.com" class="certificate-link" target="_blank">View Certificate</a>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <div class="container">
+        <div class="section-content fade-in">
+            <h2>Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>⚙️ Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Golang</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Ruby on Rails </span>
+                        <span class="skill-tag">Django</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS Cloud Services</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">ElasticSearch</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <div class="section-content fade-in">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/techblog.png" alt="Tech Blog" class="project-image">
+                    <div class="project-info">
+                        <h3>Blogging WebApp with Ruby on Rails</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/naveenkewalramani/TechBlog" class="btn" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/urlshortner.png" alt="UrlShortner" class="project-image">
+                    <div class="project-info">
+                        <h3>Customized Url-Shortner with domain specific mapping in Rails</h3>
+                        <p class="project-description">
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/naveenkewalramani/UrlShortner" class="btn" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/topbot.png" alt="Topbot3.0" class="project-image">
+                    <div class="project-info">
+                        <h3>Event Website for Robotics Competition held during Aparoksha'17 (Annual Tech Fest of IIIT Allahabad ) </h3>
+                        <p class="project-description">
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/naveenkewalramani/TOPBOT3.0" class="btn" target="_blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/aisywc.png" alt="AISYWC 17" class="project-image">
+                    <div class="project-info">
+                        <h3>AISYWC 17</h3>
+                        <p class="project-description">
+                            All India Student - Young Professionals - Women in Engineering Congress(AISYWC) is an annual flagship event of IEEE India Council held at IIIT Allahabd in 2017
+                        </p>
+                        <div class="project-links">
+                            <a href="projects/aisywc/index.html" class="btn btn-outline" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/csis.png" alt="CSIS 17" class="project-image">
+                    <div class="project-info">
+                        <h3>CSIS 17</h3>
+                        <p class="project-description">
+                            IEEE Computer Society India Symposium is a technical gathering of IEEE held at IIIT Allahabad in 2017
+                        </p>
+                        <div class="project-links">
+                            <a href="projects/csis/index.html" class="btn btn-outline" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/v2/projects/ams.png" alt="THUNDERBOLT AMS" class="project-image">
+                    <div class="project-info">
+                        <h3>Thunderbolt AMS Website</h3>
+                        <p class="project-description">
+                            Website for Acoustic and Media Society(AMS) IIIT Allahabad for 2016-2018
+                        </p>
+                        <div class="project-links">
+                            <a href="projects/ams/index.html" class="btn btn-outline" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Scroll reveal animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Add active class to navigation based on scroll position
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
