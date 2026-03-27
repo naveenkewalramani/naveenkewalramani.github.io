@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(browse)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse)",
+      "Bash($B goto:*)",
+      "Bash($B responsive:*)",
+      "Bash($B js:*)",
+      "Bash($B text:*)",
+      "Bash($B snapshot:*)",
+      "Bash(for id:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $id ===\")",
+      "Bash(done)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse $B goto \"https://www.coursera.org/account/accomplishments/verify/6A9NKGT6C4ZJ\" sleep 3 $B text)",
+      "Bash($B screenshot:*)",
+      "Bash($B click:*)",
+      "Bash($B viewport:*)",
+      "Bash(_ROOT=\"/Users/naveen/Downloads/naveenkewalramani.github.io-master\")",
+      "Bash($B status:*)",
+      "Bash(B=~/.claude/skills/gstack/browse/dist/browse $B cookie-import-browser arc --domain linkedin.com)",
+      "Bash($B handoff:*)",
+      "Bash($B console:*)"
+    ]
+  }
+}
