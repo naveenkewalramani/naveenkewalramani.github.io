@@ -1,4 +1,4 @@
 .idea/
-.claude/
-.git/
+.claude/*
+.git/*
 .gstack
