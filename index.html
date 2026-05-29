@@ -30,8 +30,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 16px;
-            line-height: 1.65;
+            font-size: 17px;
+            line-height: 1.7;
             color: var(--text);
             background: var(--bg);
             max-width: 860px;
@@ -44,10 +44,11 @@
 
         /* ── Section label ──────────────────────────────────── */
         .section-label {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #999;
+            letter-spacing: 0.08em;
+            color: var(--secondary);
             margin-bottom: 16px;
             display: block;
         }
@@ -93,7 +94,7 @@
 
         /* ── Header / About ─────────────────────────────────── */
         #about {
-            padding-top: 48px;
+            padding-top: 32px;
         }
 
         .header-grid {
@@ -107,7 +108,8 @@
             width: 110px;
             height: 110px;
             object-fit: cover;
-            border-radius: 4px;
+            object-position: center top;
+            border-radius: 50%;
         }
 
         .header-info h1 {
@@ -159,21 +161,6 @@
 
         .header-links a:hover { text-decoration: underline; }
 
-        .nav-strip {
-            margin-top: 32px;
-            font-size: 0.8rem;
-            color: var(--muted);
-            padding-bottom: 8px;
-        }
-
-        .nav-strip a {
-            color: var(--muted);
-            text-decoration: none;
-            padding: 4px 0;
-        }
-
-        .nav-strip a:hover,
-        .nav-strip a.active { color: var(--accent); }
 
         /* ── Experience Timeline ────────────────────────────── */
         .timeline {
@@ -195,12 +182,13 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+            align-self: stretch;
         }
 
         .timeline .tl-dot-col::before {
             content: '';
             position: absolute;
-            top: 10px;
+            top: 36px;
             bottom: -24px;
             width: 1px;
             background: var(--separator);
@@ -208,14 +196,14 @@
             transform: translateX(-50%);
         }
 
-        .timeline > .tl-dot-col:last-of-type::before { display: none; }
+        /* last dot column is always the 2nd-to-last child in a 3-col timeline */
+        .timeline > .tl-dot-col:nth-last-child(2)::before { display: none; }
 
-        .tl-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--muted);
-            margin-top: 4px;
+        .tl-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 4px;
             flex-shrink: 0;
         }
 
@@ -246,18 +234,18 @@
 
         /* ── Skills ─────────────────────────────────────────── */
         .skills-groups {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            row-gap: 16px;
+            align-items: start;
         }
 
         .skill-group-label {
-            display: block;
             font-size: 0.8rem;
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            margin-bottom: 8px;
+            padding-top: 6px;
         }
 
         .skill-pills {
@@ -432,9 +420,7 @@
 
             .header-links { justify-content: center; }
 
-            .nav-strip { text-align: center; }
-
-            .timeline {
+.timeline {
                 grid-template-columns: 32px 1fr;
             }
 
@@ -442,7 +428,13 @@
 
             .tl-date-mobile { display: block; }
 
-            .skills-groups { flex-direction: column; gap: 20px; }
+            .skills-groups {
+                grid-template-columns: 1fr;
+                row-gap: 12px;
+            }
+            .skill-group-label {
+                margin-bottom: 4px;
+            }
 
             .cert-row {
                 grid-template-columns: 50px 1fr;
@@ -459,10 +451,12 @@
 </head>
 <body>
 
+<!-- ─── Top Nav ──────────────────────────────────────────────── -->
+
 <!-- ─── Header / About ──────────────────────────────────────── -->
-<header id="about" style="padding-top: 48px;">
+<header id="about" style="padding-top: 32px;">
     <div class="header-grid">
-        <img src="assets/images/v1/naveen.png" alt="Naveen Kewalramani" class="profile-photo">
+        <img src="assets/images/naveen.png" alt="Naveen Kewalramani" class="profile-photo">
         <div class="header-info">
             <h1>Naveen Kewalramani</h1>
             <p class="subtitle">Senior Engineer · Fintech &amp; Distributed Systems</p>
@@ -500,15 +494,6 @@
             </div>
         </div>
     </div>
-
-    <nav id="nav-strip" class="nav-strip" aria-label="Page sections">
-        <a href="#about">about</a> ·
-        <a href="#experience">experience</a> ·
-        <a href="#skills">skills</a> ·
-        <a href="#projects">projects</a> ·
-        <a href="#certificates">certificates</a> ·
-        <a href="#writing">writing</a>
-    </nav>
 </header>
 
 <!-- ─── Experience ──────────────────────────────────────────── -->
@@ -517,7 +502,7 @@
         <span class="section-label">Experience</span>
         <div class="timeline">
             <span class="tl-date">2025 –</span>
-            <div class="tl-dot-col"><span class="tl-dot"></span></div>
+            <div class="tl-dot-col"><img src="assets/images/logos/upvest.png" alt="Upvest" class="tl-logo"></div>
             <div class="tl-desc">
                 <span class="tl-date-mobile">2025 –</span>
                 <strong><a href="https://upvest.co" target="_blank" rel="noopener">Upvest</a></strong>
@@ -526,16 +511,16 @@
             </div>
 
             <span class="tl-date">2021–2025</span>
-            <div class="tl-dot-col"><span class="tl-dot"></span></div>
+            <div class="tl-dot-col"><img src="assets/images/logos/grab.png" alt="Grab" class="tl-logo"></div>
             <div class="tl-desc">
                 <span class="tl-date-mobile">2021–2025</span>
-                <strong><a href="https://www.grab.com" target="_blank" rel="noopener">Grab · GXS Bank</a></strong>
+                <strong><a href="https://www.grab.com" target="_blank" rel="noopener">Grab</a></strong>
                 <span class="tl-role">Lead Software Engineer · Bangalore, India</span>
-                <span class="tl-tech">Go, MySQL, Redis, Kafka, Kubernetes, AWS</span>
+                <span class="tl-tech">Go, MySQL, Redis, Kafka, Kubernetes, GCP</span>
             </div>
 
             <span class="tl-date">2019–2021</span>
-            <div class="tl-dot-col"><span class="tl-dot"></span></div>
+            <div class="tl-dot-col"><img src="assets/images/logos/housing.png" alt="Housing.com" class="tl-logo"></div>
             <div class="tl-desc">
                 <span class="tl-date-mobile">2019–2021</span>
                 <strong><a href="https://housing.com" target="_blank" rel="noopener">Housing.com</a></strong>
@@ -551,35 +536,29 @@
     <div class="section-content">
         <span class="section-label">Skills</span>
         <div class="skills-groups">
-            <div class="skill-group">
-                <span class="skill-group-label">Languages</span>
-                <div class="skill-pills">
-                    <span class="pill">Go</span>
-                    <span class="pill">Python</span>
-                    <span class="pill">Ruby</span>
-                </div>
+            <span class="skill-group-label">Languages</span>
+            <div class="skill-pills">
+                <span class="pill">Go</span>
+                <span class="pill">Python</span>
+                <span class="pill">Ruby</span>
             </div>
-            <div class="skill-group">
-                <span class="skill-group-label">Frameworks</span>
-                <div class="skill-pills">
-                    <span class="pill">Ruby on Rails</span>
-                    <span class="pill">Django</span>
-                    <span class="pill">FastAPI</span>
-                </div>
+            <span class="skill-group-label">Frameworks</span>
+            <div class="skill-pills">
+                <span class="pill">Ruby on Rails</span>
+                <span class="pill">Django</span>
+                <span class="pill">FastAPI</span>
             </div>
-            <div class="skill-group">
-                <span class="skill-group-label">Infrastructure</span>
-                <div class="skill-pills">
-                    <span class="pill">Kubernetes</span>
-                    <span class="pill">Docker</span>
-                    <span class="pill">Kafka</span>
-                    <span class="pill">AWS</span>
-                    <span class="pill">Redis</span>
-                    <span class="pill">PostgreSQL</span>
-                    <span class="pill">MySQL</span>
-                    <span class="pill">ElasticSearch</span>
-                    <span class="pill">MongoDB</span>
-                </div>
+            <span class="skill-group-label">Infrastructure</span>
+            <div class="skill-pills">
+                <span class="pill">Kubernetes</span>
+                <span class="pill">Docker</span>
+                <span class="pill">Kafka</span>
+                <span class="pill">AWS</span>
+                <span class="pill">Redis</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">MySQL</span>
+                <span class="pill">ElasticSearch</span>
+                <span class="pill">MongoDB</span>
             </div>
         </div>
     </div>
@@ -591,7 +570,27 @@
         <span class="section-label">Projects</span>
         <div class="projects-grid">
             <div class="project-card">
-                <img src="assets/images/v2/projects/aisywc.png" alt="AISYWC 17" class="project-image" loading="lazy">
+                <img src="assets/images/projects/tax_calculator.png" alt="German Income Tax Calculator" class="project-image" loading="lazy">
+                <div class="project-info">
+                    <h3>German Income Tax Calculator</h3>
+                    <div class="project-links">
+                        <a href="https://naveenkewalramani.github.io/tax-calculator/" target="_blank" rel="noopener">↗ Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background: var(--tag-bg); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 2rem;">🇪🇺</span>
+                </div>
+                <div class="project-info">
+                    <h3>Pension Refund Checker for EU</h3>
+                    <div class="project-links">
+                        <a href="https://naveenkewalramani.github.io/pension-refund-check/" target="_blank" rel="noopener">↗ Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="assets/images/projects/aisywc.png" alt="AISYWC 17" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>AISYWC 17</h3>
                     <div class="project-links">
@@ -600,7 +599,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/images/v2/projects/csis.png" alt="CSIS 17" class="project-image" loading="lazy">
+                <img src="assets/images/projects/csis.png" alt="CSIS 17" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>CSIS 17</h3>
                     <div class="project-links">
@@ -609,7 +608,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/images/v2/projects/ams.png" alt="Thunderbolt AMS" class="project-image" loading="lazy">
+                <img src="assets/images/projects/ams.png" alt="Thunderbolt AMS" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>Thunderbolt AMS Website</h3>
                     <div class="project-links">
@@ -618,7 +617,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/images/v2/projects/techblog.png" alt="Tech Blog" class="project-image" loading="lazy">
+                <img src="assets/images/projects/techblog.png" alt="Tech Blog" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>Blogging WebApp with Ruby on Rails</h3>
                     <div class="project-links">
@@ -627,7 +626,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/images/v2/projects/urlshortner.png" alt="URL Shortener" class="project-image" loading="lazy">
+                <img src="assets/images/projects/urlshortner.png" alt="URL Shortener" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>Customized URL Shortener with domain-specific mapping in Rails</h3>
                     <div class="project-links">
@@ -636,7 +635,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="assets/images/v2/projects/topbot.png" alt="TOPBOT 3.0" class="project-image" loading="lazy">
+                <img src="assets/images/projects/topbot.png" alt="TOPBOT 3.0" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3>Event Website for Robotics Competition — Aparoksha'17, IIIT Allahabad</h3>
                     <div class="project-links">
@@ -700,21 +699,18 @@
 </footer>
 
 <script>
-    // ── Scroll-spy: nav-strip ────────────────────────────────────
-    const allNavLinks = document.querySelectorAll('#nav-strip a');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        document.querySelectorAll('section, header').forEach(s => {
-            if (scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
-        });
-        allNavLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-        });
-    }, { passive: true });
 
     // ── Certificates ─────────────────────────────────────────────
     (function () {
         const CERTS = [
+            {
+                icon: '☁️', type: 'aws', typeLabel: 'Amazon Web Services',
+                title: 'AWS Certified Developer – Associate',
+                issuer: 'Amazon Web Services',
+                date: 'May 2026',
+                pdf: 'https://www.credly.com/badges/a21d9c95-62e8-4ddb-ae57-01801dc2c0d0/public_url',
+                verify: 'https://www.credly.com/badges/a21d9c95-62e8-4ddb-ae57-01801dc2c0d0/public_url'
+            },
             {
                 icon: '🎓', type: 'coursera', typeLabel: 'Stanford · DeepLearning.AI',
                 title: 'Machine Learning Specialization',
