@@ -10,7 +10,7 @@
             --bg:        #fafafa;
             --text:      #1a1a1a;
             --secondary: #555555;
-            --muted:     #767676;
+            --muted:     #6b6b6b;
             --separator: #e0e0e0;
             --tag-bg:    #f0f0f0;
             --accent:    #7d6520;
@@ -60,9 +60,6 @@
 
         .section-content {
             padding: 8px 0;
-            background: none;
-            border-radius: 0;
-            box-shadow: none;
         }
 
         /* ── HR ─────────────────────────────────────────────── */
@@ -339,21 +336,8 @@
             text-align: right;
         }
 
-        /* ── Cert toggle button ─────────────────────────────── */
-        #certToggle {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 0.88rem;
-            padding: 0;
-            margin-top: 12px;
-            text-decoration: underline;
-        }
-
-        #certToggle:hover { color: var(--text); }
-
-        /* ── Projects toggle button ─────────────────────────── */
+        /* ── Toggle buttons (cert + projects) ──────────────── */
+        #certToggle,
         #projectsToggle {
             background: none;
             border: none;
@@ -363,8 +347,12 @@
             padding: 0;
             margin-top: 12px;
             text-decoration: underline;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
+        #certToggle:hover,
         #projectsToggle:hover { color: var(--text); }
 
         /* ── Writing ────────────────────────────────────────── */
@@ -416,11 +404,18 @@
 
             .profile-photo { width: 90px; height: 90px; }
 
+            .header-info h1 { font-size: 1.6rem; }
+
             .social-icons { justify-content: center; }
 
-            .header-links { justify-content: center; }
+            .header-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                row-gap: 8px;
+            }
 
-.timeline {
+            .timeline {
                 grid-template-columns: 32px 1fr;
             }
 
@@ -446,6 +441,18 @@
                 grid-template-columns: 1fr;
                 gap: 4px;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Small phone adjustments ────────────────────────── */
+        @media (max-width: 480px) {
+            body { font-size: 15px; padding: 0 16px; }
+            .header-info h1 { font-size: 1.4rem; }
+            .cert-row { gap: 8px; }
+            .project-image { height: 120px; }
         }
     </style>
 </head>
@@ -489,7 +496,8 @@
                 <p>Outside of my core architecture work, I'm a tinkerer at heart — currently diving deep into ML and AI, looking for innovative ways to integrate predictive modeling into backend systems.</p>
             </div>
             <div class="header-links">
-                <a href="resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
+                <a href="https://drive.google.com/file/d/1iaXSSTsMRgzmfDlwZkcY_KDUJnl5kiVA/view?usp=sharing" target="_blank" rel="noopener">Resume ↗</a>
+                <a href="https://www.linkedin.com/in/naveen-kewalramani/" target="_blank" rel="noopener">LinkedIn ↗</a>
                 <a href="https://topmate.io/naveen_kewalramani/" target="_blank" rel="noopener">Schedule a meeting ↗</a>
             </div>
         </div>
@@ -560,6 +568,37 @@
                 <span class="pill">ElasticSearch</span>
                 <span class="pill">MongoDB</span>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Certifications ────────────────────────────────────────── -->
+<section id="certificates">
+    <div class="section-content">
+        <span class="section-label">Certifications</span>
+        <div id="certGrid"></div>
+        <div style="margin-top: 4px;">
+            <button id="certToggle">Show all (7)</button>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Writing ──────────────────────────────────────────────── -->
+<section id="writing">
+    <div class="section-content">
+        <span class="section-label">Writing</span>
+        <div class="writing-list">
+            <div class="writing-row">
+                <span class="writing-date">Dec 2024</span>
+                <a href="https://medium.com/@naveen.kewalramani/transaction-reconciliation-in-financial-institutions-c8866124facd" class="writing-title" target="_blank" rel="noopener">Transaction Reconciliation in Financial Institutions ↗</a>
+            </div>
+            <div class="writing-row">
+                <span class="writing-date">Nov 2024</span>
+                <a href="https://medium.com/@naveen.kewalramani/microservices-vs-service-oriented-architecture-ded11ad9186e" class="writing-title" target="_blank" rel="noopener">Microservices vs. Service-Oriented Architecture ↗</a>
+            </div>
+        </div>
+        <div style="margin-top: 16px;">
+            <a href="https://medium.com/@naveen.kewalramani" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.9rem; text-decoration: none;">↗ More on Medium</a>
         </div>
     </div>
 </section>
@@ -651,47 +690,6 @@
             <a href="https://github.com/naveenkewalramani" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.9rem; text-decoration: none;">↗ naveenkewalramani on GitHub</a>
         </div>
     </div>
-</section>
-
-<!-- ─── Certifications ────────────────────────────────────────── -->
-<section id="certificates">
-    <div class="section-content">
-        <span class="section-label">Certifications</span>
-        <div id="certGrid"></div>
-        <div style="margin-top: 4px;">
-            <button id="certToggle">Show all (7)</button>
-        </div>
-    </div>
-</section>
-
-<!-- ─── Writing ──────────────────────────────────────────────── -->
-<section id="writing">
-    <div class="section-content">
-        <span class="section-label">Writing</span>
-        <div class="writing-list">
-            <div class="writing-row">
-                <span class="writing-date">Dec 2024</span>
-                <a href="https://medium.com/@naveen.kewalramani/transaction-reconciliation-in-financial-institutions-c8866124facd" class="writing-title" target="_blank" rel="noopener">Transaction Reconciliation in Financial Institutions ↗</a>
-            </div>
-            <div class="writing-row">
-                <span class="writing-date">Nov 2024</span>
-                <a href="https://medium.com/@naveen.kewalramani/microservices-vs-service-oriented-architecture-ded11ad9186e" class="writing-title" target="_blank" rel="noopener">Microservices vs. Service-Oriented Architecture ↗</a>
-            </div>
-        </div>
-        <div style="margin-top: 16px;">
-            <a href="https://medium.com/@naveen.kewalramani" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.9rem; text-decoration: none;">↗ More on Medium</a>
-        </div>
-    </div>
-</section>
-
-<!-- ─── Contact ──────────────────────────────────────────────── -->
-<section id="contact" style="padding: 32px 0 8px 0; text-align: center;">
-    <p style="color: var(--muted); font-size: 0.9rem;">
-        Get in touch —
-        <a href="https://www.linkedin.com/in/naveen-kewalramani/" target="_blank" rel="noopener" style="color: var(--accent);">LinkedIn ↗</a>
-        &nbsp;·&nbsp;
-        <a href="https://topmate.io/naveen_kewalramani/" target="_blank" rel="noopener" style="color: var(--accent);">topmate.io/naveen_kewalramani ↗</a>
-    </p>
 </section>
 
 <footer>
